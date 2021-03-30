@@ -1,115 +1,126 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-<link  rel="stylesheet"   href="style.css"  >
-<title>ورود به حساب کاربری</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>ورود به حساب کاربری</title>
 </head>
+
 <body>
-    <form id="form1" action="#">
-<div  class="form-content"  >
-    <div  class="head"  >  
+  <form id="form1" action="#">
+    <div class="form-content">
+      <div class="head">
         ورود به حساب کاربری
-</div>
-    <div  class="bd-example form-row  head"  >
-        <label   id="lable"   class="form-label" >تایید ایمیل</label>
-   
-        </div>
-        <div class="form-row-lable">
-            <div  class="text-email"  >ویرایش</div>
-            <div>mail@gmail.com</div>
-        </div>
-        <div  class="input-cod"  >
-            <input type="text" class="mobile-verify pass" maxlength="1"  />
-            <input type="text" class="mobile-verify pass" maxlength="1"  />
-            <input type="text" class="mobile-verify pass" maxlength="1"  />
-            <input type="text" class="mobile-verify pass" maxlength="1"  />
-            
-        </div>
-  
+      </div>
+      <div class="bd-example form-row  head">
+        <label id="lable" class="form-label">تایید ایمیل</label>
 
-        <div  class="button-form"  >
-            <input   class="btn btn-primary"   onclick="validation()"  type="submit" value=" ورود " >
-        </div>
+      </div>
+      <div class="form-row-lable">
+        <div class="text-email">ویرایش</div>
+        <div>mail@gmail.com</div>
+      </div>
+      <div class="input-cod">
+        <input type="text" class="mobile-verify pass" maxlength="1" />
+        <input type="text" class="mobile-verify pass" maxlength="1" />
+        <input type="text" class="mobile-verify pass" maxlength="1" />
+        <input type="text" class="mobile-verify pass" maxlength="1" />
+
+      </div>
+
+
+      <div class="button-form">
+        <input class="btn btn-primary" type="submit" value=" ورود ">
+      </div>
     </div>
-    
 
-   
 
-</div>
-</div>
-</form>
-<nav class="nav">
-    
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">teams </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">plans</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">contact us</a>
-        </li>
-       
-      </ul>
-   
+
+
+    </div>
+    </div>
+  </form>
+  <nav class="nav">
+
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">teams </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">plans</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">contact us</a>
+      </li>
+
+    </ul>
+
   </nav>
- 
-<script>
-   var allElements = document.querySelectorAll('.mobile-verify');
-var i;
 
-for (i = 0; i < 3; i++) {
+  <script>
+    const allElements = document.querySelectorAll('.mobile-verify');
+    const allElementsLen = allElements.length;
 
-  var el = allElements[i];
-  el.addEventListener("keypress", function () {
-    this.nextSibling.nextSibling.focus();
-  });
+    allElements[2].focus();
+
+    let activeItemIndex = null;
+    if (document.activeElement.nodeName != allElements[0].nodeName) {
+      allElements[0].focus();
+      activeItemIndex = 0
+    }
+    else {  
+      let index = 0
+      for (; index < allElementsLen; index++) {
+        if (allElements[index] == document.activeElement) break;
+      }
+
+      activeItemIndex = index;
+    }
+
+    for (let i = 0; i < allElementsLen; i++) {
+
+      const targetElement = allElements[i];
+      targetElement.addEventListener('keyup', function (event) {
+
+        if (['ArrowRight', 'Enter'].indexOf(event.key) > -1) {
+          if (this.nextElementSibling == null) return;
+let  lastarray= allElementsLen - 1;
+          if (i === allElementsLen - 1) {
+            allElements[0].focus();
+            return;
+          }
+
+          this.nextElementSibling.focus();
+        }
+
+        if (['ArrowLeft', 'Backspace'].indexOf(event.key) > -1) {
+          
+        }
+      });
+    }
+
+    // var allElements2 = document.querySelectorAll('.mobile-verify.pass');
+    // var j;
+    // for (j = 3; j > 0; j--) {
+    //   var ela = allElements2[j];
+    //   ela.addEventListener('keyup', function (event) {
+
+    //     if (this.previousElementSibling == null || j === 0) return;
+
+    //     const key = event.key;
+    //     if (key === "Backspace" || key === "Delete") {
+    //       this.value = '';
+    //       this.previousElementSibling.focus();
+    //     }
+    //   });
 
 
- 
-
-  
-}
+    // }
 
 
 
- var allElements2 = document.querySelectorAll('.mobile-verify.pass');
-var j;
-for (j = 3; j >= 0; j--) {
-  var ela = allElements2[j];
-// console.log(ela);
-// if(j==3)
-//         ela.value='';
-  ela.addEventListener('keydown', function(event) {
-            const key = event.key;
-            if (key === "Backspace" || key === "Delete") {
-              ela.nodeValue='';
-              //this.previousSibling.previousSibling.focus();
-            }
-  });
-
-
- 
-
-  
-}
-
-
-
-
-  // el.addEventListener("keydown", ({key}) => {
-  //   if (key === "Delete") {
-  //       alert('klkl');
-  //   }
-//}); 
-
-  
-//}
-
-
-
-</script>
+  </script>
 </body>
+
 </html>
