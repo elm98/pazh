@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "Iranian Sans";
+    src: url("Far_Nazanin.ttf");
+    
+  }
+  
+body{
+    font-family: Iranian Sans;
+}
+
+.mobile-verify{
+    width: 20%;
+    /* border-bottom: 1px solid red; */
+    border: 0;
+    border-bottom: 1px solid #007eff;
+    text-align: center;
+    background: #e4e4e4;
+    outline: none;
+}
+
+.input-cod{
+    padding: 10px;
+    background: #e4e4e4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0px;
+}
+
+.text-email{
+    flex-grow: 1;
+    color: blue;
+}
+.form-row-lable{
+    display: flex;
+    justify-content: space-around;
+    direction: rtl;
+    font-size: 15px;
+}
+.form-content{
+    width: 25%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+
+}
+
+.nav{
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.nav ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.nav ul li{
+    padding: 5px;
+}
+.nav ul li a {
+    text-decoration: none;
+}
+.form-label {
+    font-size: 15px;
+}
+
+label {
+    display: inline-block;
+}
+.button-form{display: flex;}
+.head {
+    text-align: right;
+
+    font-size: 27px;
+    padding: 20px 0px;
+    
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #EEF1F5;
+    background-clip: padding-box;
+    border: 1px solid #EEF1F5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.bd-example {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.form-row{
+    display: flex;
+    width: 100%;
+    padding: 20px  0px;
+    direction: rtl;
+    /* font-size: 15px; */
+    flex-grow: 1;
+}
+.btn-primary{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+
+.bd-example>.btn, .bd-example>.btn-group {
+    margin: .25rem .125rem;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
