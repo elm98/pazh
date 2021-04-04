@@ -21,11 +21,12 @@
         <div class="text-email">ویرایش</div>
         <div>mail@gmail.com</div>
       </div>
-      <div class="input-cod">
+      <div class="input-cod  container"  id="ib">
+
         <input type="text" class="mobile-verify pass" maxlength="1" />
         <input type="text" class="mobile-verify pass" maxlength="1" />
         <input type="text" class="mobile-verify pass" maxlength="1" />
-        <input type="text" class="mobile-verify pass" maxlength="1" />
+        <input type="text" class="mobile-verify saasasa pass" maxlength="1" />
 
       </div>
 
@@ -59,66 +60,66 @@
   </nav>
 
   <script>
-    const allElements = document.querySelectorAll('.mobile-verify');
-    const allElementsLen = allElements.length;
 
-    allElements[2].focus();
 
-    let activeItemIndex = null;
-    if (document.activeElement.nodeName != allElements[0].nodeName) {
-      allElements[0].focus();
-      activeItemIndex = 0
-    }
-    else {  
-      let index = 0
-      for (; index < allElementsLen; index++) {
-        if (allElements[index] == document.activeElement) break;
+var container = document.getElementsByClassName("container")[0];
+container.onkeyup = function(e) {
+  var target =  e.target;
+  var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+  var myLength = target.value.length;
+  if (myLength >= maxLength) {
+    var next = target;
+    while (next = next.nextElementSibling) {
+      if (next == null)
+        break;
+      if (next.tagName.toLowerCase() === "input") {
+        next.focus();
+        break;
       }
-
-      activeItemIndex = index;
     }
+  }
+  // Move to previous field if empty (user pressed backspace)
+  else if (myLength === 0) {
+    var previous = target;
+    // Move to previous field if backspace is pressed
 
-    for (let i = 0; i < allElementsLen; i++) {
 
-      const targetElement = allElements[i];
-      targetElement.addEventListener('keyup', function (event) {
-
-        if (['ArrowRight', 'Enter'].indexOf(event.key) > -1) {
-          if (this.nextElementSibling == null) return;
-let  lastarray= allElementsLen - 1;
-          if (i === allElementsLen - 1) {
-            allElements[0].focus();
-            return;
+console.log(e.keyCode)
+    if (e.keyCode === 8  ) {
+      previous = previous.previousElementSibling;
+      if (previous != null) {
+        if (previous.tagName.toLowerCase() === "input") {
+          previous.focus();
+        }
+      }
+    }
+    if ( e.keyCode ===37 ) {
+      previous = previous.previousElementSibling;
+      if (previous != null) {
+        if (previous.tagName.toLowerCase() === "input") {
+          previous.focus();
+        }
+      }
+    }
+    else {
+      while (previous = previous.previousElementSibling) {
+        if (previous == null)
+          break;
+        if (previous.tagName.toLowerCase() === "input") {
+          var mLength = parseInt(previous.attributes["maxlength"].value, 10);
+          var pMyLength = previous.value.length;
+          // Move to previous field if it does not have required length
+          if (mLength == pMyLength) {
+            break;
+          } else {
+            previous.focus();
+            break;
           }
-
-          this.nextElementSibling.focus();
         }
-
-        if (['ArrowLeft', 'Backspace'].indexOf(event.key) > -1) {
-          
-        }
-      });
+      }
     }
-
-    // var allElements2 = document.querySelectorAll('.mobile-verify.pass');
-    // var j;
-    // for (j = 3; j > 0; j--) {
-    //   var ela = allElements2[j];
-    //   ela.addEventListener('keyup', function (event) {
-
-    //     if (this.previousElementSibling == null || j === 0) return;
-
-    //     const key = event.key;
-    //     if (key === "Backspace" || key === "Delete") {
-    //       this.value = '';
-    //       this.previousElementSibling.focus();
-    //     }
-    //   });
-
-
-    // }
-
-
+  }
+}
 
   </script>
 </body>
